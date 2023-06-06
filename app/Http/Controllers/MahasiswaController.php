@@ -89,16 +89,14 @@ class MahasiswaController extends Controller
     {
         //
 
-        $mahasiswa->update(
-            [
-                "nim" => $request->nim,
-                "nama" => $request->nama,
-                "kelas_id" => $request->kelas,
-                "jurusan" => $request->jurusan,
-                "prodi" => $request->prodi,
-                "no_hp" => $request->no_hp,
-            ]
-        );
+       $mahasiswa->nim = $request->nim;
+       $mahasiswa->nama = $request->nama;
+       $mahasiswa->kelas_id = $request->kelas;
+       $mahasiswa->jurusan = $request->jurusan;
+       $mahasiswa->prodi = $request->prodi;
+       $mahasiswa->no_hp = $request->no_hp;
+
+       $mahasiswa->save();
 
         return new MahasiswaResource($mahasiswa);
 
